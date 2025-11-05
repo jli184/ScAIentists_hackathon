@@ -19,11 +19,39 @@ def load_all_data():
 
     return combined
 
-def prepare_features_target(df):
-    """Extract features and target"""
-    X = df[['lat', 'long', 'alt', 'year']].values
-    y = df['bloom_doy'].values
-    return X, y
+def prepare_features_target(df, use_climate=True):
+    """
+    Extract features and target
+
+    Features:
+    - Base: lat, long, alt, year
+    - Climate (if available): spring_temp, spring_gdd, winter_chill_days, spring_precip
+    """
+    base_features = ['lat', 'long', 'alt', 'year']
+    climate_features = ['spring_temp', 'spring_gdd', 'winter_chill_days', 'spring_precip']
+
+    # Check if climate features are available
+    has_climate = all(col in df.columns for col in climate_features)
+
+    if use_climate and has_climate:
+        features = base_features + climate_features
+        # Only use records with complete climate data
+        df_clean = df.dropna(subset=climate_features).copy()
+        n_dropped = len(df) - len(df_clean)
+        if n_dropped > 0:
+            print(f"  Dropped {n_dropped} records with missing climate data")
+    else:
+        features = base_features
+        df_clean = df.copy()
+        if use_climate and not has_climate:
+            print(f"  Climate features not available, using base features only")
+
+    X = df_clean[features].values
+    y = df_clean['bloom_doy'].values
+
+    print(f"  Using {len(features)} features: {', '.join(features)}")
+
+    return X, y, df_clean
 
 def predict_toronto_simple(other_data, toronto_data, n_samples=1000, random_seed=42):
     """
@@ -38,8 +66,8 @@ def predict_toronto_simple(other_data, toronto_data, n_samples=1000, random_seed
     from tabpfn import TabPFNRegressor
 
     # Prepare data
-    X_train_all, y_train_all = prepare_features_target(other_data)
-    X_toronto, y_toronto_actual = prepare_features_target(toronto_data)
+    X_train_all, y_train_all, other_data_clean = prepare_features_target(other_data)
+    X_toronto, y_toronto_actual, toronto_data_clean = prepare_features_target(toronto_data)
 
     # Sample training data
     np.random.seed(random_seed)
@@ -66,7 +94,7 @@ def predict_toronto_simple(other_data, toronto_data, n_samples=1000, random_seed
     print(f"Predicting Toronto bloom dates for {len(X_toronto)} years...")
     y_pred = model.predict(X_toronto)
 
-    return y_pred, y_toronto_actual
+    return y_pred, y_toronto_actual, toronto_data_clean
 
 def predict_toronto_ensemble(other_data, toronto_data, n_models=10, n_samples=1000):
     """
@@ -80,8 +108,8 @@ def predict_toronto_ensemble(other_data, toronto_data, n_models=10, n_samples=10
     """
     from tabpfn import TabPFNRegressor
 
-    X_train_all, y_train_all = prepare_features_target(other_data)
-    X_toronto, y_toronto_actual = prepare_features_target(toronto_data)
+    X_train_all, y_train_all, other_data_clean = prepare_features_target(other_data)
+    X_toronto, y_toronto_actual, toronto_data_clean = prepare_features_target(toronto_data)
 
     print(f"\nTraining ensemble of {n_models} models...")
     print(f"Each model uses {n_samples} random samples")
@@ -114,7 +142,7 @@ def predict_toronto_ensemble(other_data, toronto_data, n_models=10, n_samples=10
     y_pred_ensemble = np.mean(predictions, axis=0)
     y_std_ensemble = np.std(predictions, axis=0)
 
-    return y_pred_ensemble, y_std_ensemble, y_toronto_actual
+    return y_pred_ensemble, y_std_ensemble, y_toronto_actual, toronto_data_clean
 
 def main():
     print("="*60)
@@ -138,7 +166,7 @@ def main():
     print("APPROACH 1: Single Model (1000 samples)")
     print("="*60)
 
-    y_pred_single, y_actual = predict_toronto_simple(
+    y_pred_single, y_actual, toronto_data_clean = predict_toronto_simple(
         other_data, toronto_data, n_samples=1000, random_seed=42
     )
 
@@ -154,12 +182,12 @@ def main():
     # Show predictions
     print(f"\n{'Year':<6} {'Actual':<8} {'Predicted':<10} {'Error':<10}")
     print("-" * 40)
-    for i, row in enumerate(toronto_data.itertuples()):
+    for i, row in enumerate(toronto_data_clean.itertuples()):
         error = y_actual[i] - y_pred_single[i]
         print(f"{int(row.year):<6} {int(y_actual[i]):<8} {y_pred_single[i]:<10.1f} {error:<10.1f}")
 
     # Save results
-    results_single = toronto_data.copy()
+    results_single = toronto_data_clean.copy()
     results_single['predicted_doy'] = y_pred_single
     results_single['error_days'] = y_actual - y_pred_single
     results_single.to_csv("toronto_predictions_simple.csv", index=False)
@@ -175,7 +203,7 @@ def main():
         print("APPROACH 2: Ensemble (10 models × 1000 samples)")
         print("="*60)
 
-        y_pred_ensemble, y_std_ensemble, y_actual = predict_toronto_ensemble(
+        y_pred_ensemble, y_std_ensemble, y_actual, toronto_data_clean_ens = predict_toronto_ensemble(
             other_data, toronto_data, n_models=10, n_samples=1000
         )
 
@@ -191,13 +219,13 @@ def main():
         # Show predictions with uncertainty
         print(f"\n{'Year':<6} {'Actual':<8} {'Predicted':<10} {'Std Dev':<10} {'Error':<10}")
         print("-" * 50)
-        for i, row in enumerate(toronto_data.itertuples()):
+        for i, row in enumerate(toronto_data_clean_ens.itertuples()):
             error = y_actual[i] - y_pred_ensemble[i]
             print(f"{int(row.year):<6} {int(y_actual[i]):<8} {y_pred_ensemble[i]:<10.1f} "
                   f"{y_std_ensemble[i]:<10.2f} {error:<10.1f}")
 
         # Save ensemble results
-        results_ensemble = toronto_data.copy()
+        results_ensemble = toronto_data_clean_ens.copy()
         results_ensemble['predicted_doy'] = y_pred_ensemble
         results_ensemble['prediction_std'] = y_std_ensemble
         results_ensemble['error_days'] = y_actual - y_pred_ensemble

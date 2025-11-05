@@ -25,15 +25,42 @@ def load_all_data():
 
     return combined
 
-def prepare_features_target(df):
+def prepare_features_target(df, use_climate=True):
     """
     Prepare features (X) and target (y) from dataframe
-    Features: lat, long, alt, year
+
+    Features:
+    - Base: lat, long, alt, year
+    - Climate (if available): spring_temp, spring_gdd, winter_chill_days, spring_precip
+
     Target: bloom_doy
     """
-    X = df[['lat', 'long', 'alt', 'year']].values
-    y = df['bloom_doy'].values
-    return X, y
+    base_features = ['lat', 'long', 'alt', 'year']
+    climate_features = ['spring_temp', 'spring_gdd', 'winter_chill_days', 'spring_precip']
+
+    # Check if climate features are available
+    has_climate = all(col in df.columns for col in climate_features)
+
+    if use_climate and has_climate:
+        features = base_features + climate_features
+        # Only use records with complete climate data
+        df_clean = df.dropna(subset=climate_features).copy()
+        n_dropped = len(df) - len(df_clean)
+        if n_dropped > 0:
+            print(f"  Note: Dropped {n_dropped} records with missing climate data")
+    else:
+        features = base_features
+        df_clean = df.copy()
+        if use_climate and not has_climate:
+            print(f"  Note: Climate features not available, using base features only")
+
+    X = df_clean[features].values
+    y = df_clean['bloom_doy'].values
+
+    feature_info = f"  Features: {', '.join(features)}"
+    print(feature_info)
+
+    return X, y, df_clean
 
 def benchmark_tabpfn(X_train, y_train, X_test, y_test, test_description="Test Set"):
     """
@@ -114,7 +141,7 @@ def main():
     print("BENCHMARK 1: General Performance (80/20 split)")
     print("="*60)
 
-    X_all, y_all = prepare_features_target(other_data)
+    X_all, y_all, other_data_clean = prepare_features_target(other_data)
     X_train_bench, X_test_bench, y_train_bench, y_test_bench = train_test_split(
         X_all, y_all, test_size=0.2, random_state=42
     )
@@ -133,10 +160,10 @@ def main():
     print("="*60)
 
     # Prepare training data (all non-Toronto locations)
-    X_train_toronto, y_train_toronto = prepare_features_target(other_data)
+    X_train_toronto, y_train_toronto, train_data_clean = prepare_features_target(other_data)
 
     # Prepare Toronto data for prediction
-    X_toronto, y_toronto_actual = prepare_features_target(toronto_data)
+    X_toronto, y_toronto_actual, toronto_data_clean = prepare_features_target(toronto_data)
 
     # Train on all non-Toronto data
     from tabpfn import TabPFNRegressor
@@ -164,7 +191,7 @@ def main():
     y_toronto_pred = model_toronto.predict(X_toronto)
 
     # Create results dataframe
-    toronto_results = toronto_data.copy()
+    toronto_results = toronto_data_clean.copy()
     toronto_results['predicted_doy'] = y_toronto_pred
     toronto_results['error_days'] = toronto_results['bloom_doy'] - y_toronto_pred
 

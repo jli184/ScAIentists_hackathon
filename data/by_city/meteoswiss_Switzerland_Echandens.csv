@@ -1,0 +1,4 @@
+location,lat,long,alt,year,bloom_date,bloom_doy,spring_temp,spring_gdd,winter_chill_days,spring_precip
+Switzerland/Echandens,46.537211,6.543094,422,2021,2021-04-01,91,,,,
+Switzerland/Echandens,46.537211,6.543094,422,2022,2022-04-06,96,,,,
+Switzerland/Echandens,46.537211,6.543094,422,2023,2023-04-08,98,,,,

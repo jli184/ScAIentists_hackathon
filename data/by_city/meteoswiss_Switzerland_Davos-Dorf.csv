@@ -1,0 +1,4 @@
+location,lat,long,alt,year,bloom_date,bloom_doy,spring_temp,spring_gdd,winter_chill_days,spring_precip
+Switzerland/Davos-Dorf,46.808986,9.836586,1560,1964,1964-05-25,146,,,,
+Switzerland/Davos-Dorf,46.808986,9.836586,1560,1968,1968-05-30,151,,,,
+Switzerland/Davos-Dorf,46.808986,9.836586,1560,2023,2023-05-20,140,,,,

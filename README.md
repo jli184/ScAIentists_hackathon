@@ -1,7 +1,7 @@
 # ScAIentists Contribution to the [AI for Science Hackathon](https://ai-for-science.org/)
 Team Members: Desalegn Wogaso Wolla, Taniya Kapoor, Jennifer Li, Joshua Speagle, Kevin McKinnon
 
-![Summary slide presented at hackathon](./visuals/hackathon_summary.pdf)
+![Summary slide presented at hackathon](./visuals/hackathon_summary.png)
 
 ## 🌸 Predicting Toronto Cherry Blossom Peak Bloom
 

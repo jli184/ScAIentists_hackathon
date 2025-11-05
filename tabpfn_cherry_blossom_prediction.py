@@ -6,24 +6,7 @@ import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
-import glob
-import os
-
-def load_all_data():
-    """Load all cherry blossom datasets"""
-    data_files = glob.glob("data/*.csv")
-
-    all_dfs = []
-    for file in data_files:
-        df = pd.read_csv(file)
-        all_dfs.append(df)
-
-    combined = pd.concat(all_dfs, ignore_index=True)
-    print(f"Loaded {len(combined)} total records from {len(data_files)} files")
-    print(f"Locations: {combined['location'].nunique()}")
-    print(f"Year range: {combined['year'].min()}-{combined['year'].max()}")
-
-    return combined
+from data_utils import load_all_data
 
 def prepare_features_target(df, use_climate=True):
     """

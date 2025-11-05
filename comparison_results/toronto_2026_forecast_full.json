@@ -1,0 +1,82 @@
+{
+  "timestamp": "2025-11-05T20:04:40.711241",
+  "location": "toronto",
+  "forecast_year": 2026,
+  "n_scenarios": 3,
+  "climate_source_years": [
+    2025,
+    2024,
+    2023
+  ],
+  "mean_prediction_doy": 119.86615753173828,
+  "std_prediction_doy": 3.6745827198028564,
+  "mean_prediction_date": "2026-04-29",
+  "training_samples": 3631,
+  "features": [
+    "lat",
+    "long",
+    "alt",
+    "year",
+    "spring_temp",
+    "spring_gdd",
+    "winter_chill_days",
+    "spring_precip"
+  ],
+  "includes_toronto_history": true,
+  "forecasts": [
+    {
+      "year": 2026,
+      "lat": 43.646548,
+      "lon": -79.46369,
+      "alt": 106.277,
+      "spring_temp": -2.67,
+      "spring_gdd": 22.4,
+      "winter_chill_days": 90.0,
+      "spring_precip": 159.0,
+      "climate_source_year": 2025,
+      "predicted_doy": 122.81547546386719,
+      "predicted_doy_q10": 114.6888656616211,
+      "predicted_doy_q50": 122.94602966308594,
+      "predicted_doy_q90": 130.7389678955078,
+      "predicted_date": "2026-05-02",
+      "predicted_date_q10": "2026-04-24",
+      "predicted_date_q90": "2026-05-10"
+    },
+    {
+      "year": 2026,
+      "lat": 43.646548,
+      "lon": -79.46369,
+      "alt": 106.277,
+      "spring_temp": 0.56,
+      "spring_gdd": 30.2,
+      "winter_chill_days": 88.0,
+      "spring_precip": 185.0,
+      "climate_source_year": 2024,
+      "predicted_doy": 115.7497787475586,
+      "predicted_doy_q10": 107.7668228149414,
+      "predicted_doy_q50": 115.64663696289062,
+      "predicted_doy_q90": 123.93890380859375,
+      "predicted_date": "2026-04-25",
+      "predicted_date_q10": "2026-04-17",
+      "predicted_date_q90": "2026-05-03"
+    },
+    {
+      "year": 2026,
+      "lat": 43.646548,
+      "lon": -79.46369,
+      "alt": 106.277,
+      "spring_temp": -0.47,
+      "spring_gdd": 5.7,
+      "winter_chill_days": 88.0,
+      "spring_precip": 264.4,
+      "climate_source_year": 2023,
+      "predicted_doy": 121.03323364257812,
+      "predicted_doy_q10": 112.10184478759766,
+      "predicted_doy_q50": 120.86383819580078,
+      "predicted_doy_q90": 130.3048095703125,
+      "predicted_date": "2026-05-01",
+      "predicted_date_q10": "2026-04-22",
+      "predicted_date_q90": "2026-05-10"
+    }
+  ]
+}

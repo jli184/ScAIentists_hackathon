@@ -5,19 +5,7 @@ Uses random sampling to stay within TabPFN's official limits (1000 samples on CP
 import pandas as pd
 import numpy as np
 from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
-import glob
-
-def load_all_data():
-    """Load all cherry blossom datasets"""
-    data_files = glob.glob("data/*.csv")
-    all_dfs = [pd.read_csv(file) for file in data_files]
-    combined = pd.concat(all_dfs, ignore_index=True)
-
-    print(f"Loaded {len(combined)} total records from {len(data_files)} files")
-    print(f"Locations: {combined['location'].nunique()}")
-    print(f"Year range: {combined['year'].min()}-{combined['year'].max()}")
-
-    return combined
+from data_utils import load_all_data
 
 def prepare_features_target(df, use_climate=True):
     """

@@ -1,0 +1,147 @@
+======================================================================
+SYSTEMATIC COMPARISON: Baseline vs Climate-Enhanced TabPFN
+======================================================================
+
+Target location: toronto
+Max training samples: 10000
+
+1. Loading data...
+Loading data from 9 country-level files...
+Loading data from 326 city-level files...
+  Removed 14794 duplicate records
+
+Loaded 14715 total records
+  Unique locations: 332
+  Year range: 812-2025
+  Climate data: 3631/13898 enrichable records (26.1%)
+   Target (toronto): 14 records
+   Training (other locations): 14701 records
+
+======================================================================
+BASELINE PREDICTION: Geographic + Year Features Only
+======================================================================
+Features: lat, long, alt, year
+
+======================================================================
+BASELINE MODEL (No Climate Data)
+======================================================================
+Training samples: 14701
+Test samples: 14
+Features: 4
+Sampling 10000 training samples (TabPFN limit)...
+Training TabPFN...
+✓ Training complete
+Making predictions...
+✓ Predictions complete
+
+Results:
+  MAE:         25.45 days
+  RMSE:        26.92 days
+  R²:          -8.8361
+  Bias (mean): +25.45 days
+  Bias (med):  +28.64 days
+
+======================================================================
+CLIMATE-ENHANCED PREDICTION: Adding Climate Features
+======================================================================
+  Dropped 11084 records with missing climate data
+Features: lat, long, alt, year, spring_temp, spring_gdd, winter_chill_days, spring_precip
+
+======================================================================
+CLIMATE-ENHANCED MODEL (With Climate Data)
+======================================================================
+Training samples: 3617
+Test samples: 14
+Features: 8
+Training TabPFN...
+✓ Training complete
+Making predictions...
+✓ Predictions complete
+
+Results:
+  MAE:         6.38 days
+  RMSE:        7.75 days
+  R²:          0.1859
+  Bias (mean): +5.23 days
+  Bias (med):  +5.41 days
+
+======================================================================
+COMPARISON: Baseline vs Climate-Enhanced
+======================================================================
+
+BASELINE Performance:
+  MAE:         25.45 days
+  RMSE:        26.92 days
+  R²:          -8.8361
+  Bias (mean): +25.45 days
+  Bias (med):  +28.64 days
+
+CLIMATE-ENHANCED Performance:
+  MAE:         6.38 days
+  RMSE:        7.75 days
+  R²:          0.1859
+  Bias (mean): +5.23 days
+  Bias (med):  +5.41 days
+
+IMPROVEMENT (Climate-Enhanced vs Baseline):
+  MAE:  +19.07 days (+74.9%)
+  RMSE: +19.18 days (+71.2%)
+  R²:   +9.0220 (+102.1%)
+  Bias (mean): +20.22 days
+  Bias (med):  +23.23 days
+
+✓ Climate data IMPROVES predictions by 19.07 days MAE
+
+✓ Saved comparison to: comparison_results/toronto_comparison.csv
+✓ Saved metrics to: comparison_results/toronto_metrics.json
+
+======================================================================
+✓ COMPARISON COMPLETE
+======================================================================
+
+======================================================================
+Generating 2026 forecasts...
+======================================================================
+Loading data from 9 country-level files...
+Loading data from 326 city-level files...
+  Removed 14794 duplicate records
+
+Loaded 14715 total records
+  Unique locations: 332
+  Year range: 812-2025
+  Climate data: 3631/13898 enrichable records (26.1%)
+Training model for 2026 forecasts...
+
+======================================================================
+2026 FORECASTS (Using Historical Climate Data)
+======================================================================
+
+  Using 2025 climate data:
+    Spring temp: -2.67°C
+    Spring GDD: 22.4
+    Winter chill days: 90
+    Spring precip: 159.0mm
+    → Predicted DOY: 118.2 (2026-04-28)
+
+  Using 2024 climate data:
+    Spring temp: 0.56°C
+    Spring GDD: 30.2
+    Winter chill days: 88
+    Spring precip: 185.0mm
+    → Predicted DOY: 112.1 (2026-04-22)
+
+  Using 2023 climate data:
+    Spring temp: -0.47°C
+    Spring GDD: 5.7
+    Winter chill days: 88
+    Spring precip: 264.4mm
+    → Predicted DOY: 117.1 (2026-04-27)
+
+✓ Saved 2026 forecasts to: comparison_results/toronto_2026_forecasts.csv
+
+======================================================================
+2026 FORECAST SUMMARY
+======================================================================
+Mean prediction: DOY 115.8 (±3.3 days)
+Range: DOY 112.1 - 118.2
+Date range: 2026-04-22 to 2026-04-28

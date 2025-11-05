@@ -1,0 +1,6 @@
+location,lat,long,alt,year,bloom_date,bloom_doy,spring_temp,spring_gdd,winter_chill_days,spring_precip
+Switzerland/Payerne,46.811581,6.942469,490,2018,2018-04-25,115,,,85.0,
+Switzerland/Payerne,46.811581,6.942469,490,2020,2020-04-15,106,4.55,102.9,76.0,233.7
+Switzerland/Payerne,46.811581,6.942469,490,2021,2021-04-27,117,,,81.0,
+Switzerland/Payerne,46.811581,6.942469,490,2022,2022-04-20,110,3.78,90.5,81.0,167.4
+Switzerland/Payerne,46.811581,6.942469,490,2023,2023-04-18,108,,,74.0,

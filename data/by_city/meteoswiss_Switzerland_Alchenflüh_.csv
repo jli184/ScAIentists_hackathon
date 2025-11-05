@@ -1,0 +1,12 @@
+location,lat,long,alt,year,bloom_date,bloom_doy,spring_temp,spring_gdd,winter_chill_days,spring_precip
+Switzerland/Alchenflüh ,47.079619,7.5848,513,2013,2013-04-27,117,,,87.0,
+Switzerland/Alchenflüh ,47.079619,7.5848,513,2014,2014-04-09,99,4.25,78.2,88.0,202.1
+Switzerland/Alchenflüh ,47.079619,7.5848,513,2015,2015-04-19,109,2.73,57.1,,255.7
+Switzerland/Alchenflüh ,47.079619,7.5848,513,2016,2016-04-19,110,3.48,56.8,82.0,359.4
+Switzerland/Alchenflüh ,47.079619,7.5848,513,2017,2017-04-06,96,,,87.0,
+Switzerland/Alchenflüh ,47.079619,7.5848,513,2018,2018-04-21,111,2.17,26.2,86.0,310.8
+Switzerland/Alchenflüh ,47.079619,7.5848,513,2019,2019-04-15,105,2.77,46.4,,217.2
+Switzerland/Alchenflüh ,47.079619,7.5848,513,2020,2020-04-12,103,,,79.0,
+Switzerland/Alchenflüh ,47.079619,7.5848,513,2021,2021-04-20,110,2.84,59.5,81.0,296.9
+Switzerland/Alchenflüh ,47.079619,7.5848,513,2022,2022-04-15,105,3.36,79.0,,168.4
+Switzerland/Alchenflüh ,47.079619,7.5848,513,2023,2023-04-20,110,3.53,92.3,82.0,244.0

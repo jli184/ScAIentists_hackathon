@@ -1,0 +1,32 @@
+============================================================
+Enriching Cherry Blossom CSVs with Climate Data
+============================================================
+
+Found 9 CSV files
+  japan.csv: 6573 records
+  kyoto.csv: 836 records
+  liestal.csv: 132 records
+  meteoswiss.csv: 6642 records
+  nyc.csv: 1 records
+  south_korea.csv: 994 records
+  toronto.csv: 14 records
+  vancouver.csv: 4 records
+  washingtondc.csv: 104 records
+
+Total records across all files: 15300
+
+Press Enter to start enrichment (this will take ~30-60 min)...
+
+[File 1/9]
+
+============================================================
+Processing: japan.csv
+============================================================
+Total records: 6573
+Records >= 1940 (can be enriched): 6573
+
+  Japan/Wakkanai: 60 enrichable records
+    Progress: 5/60    Progress: 10/60    Progress: 15/60    Progress: 20/60    Progress: 25/60    Progress: 30/60    Progress: 35/60    Progress: 40/60    Progress: 45/60    Progress: 50/60    Progress: 55/60    Progress: 60/60    Progress: 60/60 ✓
+
+  Japan/Rumoi: 53 enrichable records
+    Progress: 5/53    Progress: 10/53

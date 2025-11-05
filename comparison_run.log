@@ -1,0 +1,90 @@
+======================================================================
+SYSTEMATIC COMPARISON: Baseline vs Climate-Enhanced TabPFN
+======================================================================
+
+Target location: toronto
+Max training samples: 10000
+
+1. Loading data...
+Loading data from 9 country-level files...
+Loading data from 326 city-level files...
+  Removed 14794 duplicate records
+
+Loaded 14715 total records
+  Unique locations: 332
+  Year range: 812-2025
+  Climate data: 3631/13898 enrichable records (26.1%)
+   Target (toronto): 14 records
+   Training (other locations): 14701 records
+
+======================================================================
+BASELINE PREDICTION: Geographic + Year Features Only
+======================================================================
+Features: lat, long, alt, year
+
+======================================================================
+BASELINE MODEL (No Climate Data)
+======================================================================
+Training samples: 14701
+Test samples: 14
+Features: 4
+Sampling 10000 training samples (TabPFN limit)...
+Training TabPFN...
+✓ Training complete
+Making predictions...
+✓ Predictions complete
+
+Results:
+  MAE:  25.45 days
+  RMSE: 26.92 days
+  R²:   -8.8361
+
+======================================================================
+CLIMATE-ENHANCED PREDICTION: Adding Climate Features
+======================================================================
+  Dropped 11084 records with missing climate data
+Features: lat, long, alt, year, spring_temp, spring_gdd, winter_chill_days, spring_precip
+
+======================================================================
+CLIMATE-ENHANCED MODEL (With Climate Data)
+======================================================================
+Training samples: 3617
+Test samples: 14
+Features: 8
+Training TabPFN...
+✓ Training complete
+Making predictions...
+✓ Predictions complete
+
+Results:
+  MAE:  6.38 days
+  RMSE: 7.75 days
+  R²:   0.1859
+
+======================================================================
+COMPARISON: Baseline vs Climate-Enhanced
+======================================================================
+
+BASELINE Performance:
+  MAE:  25.45 days
+  RMSE: 26.92 days
+  R²:   -8.8361
+
+CLIMATE-ENHANCED Performance:
+  MAE:  6.38 days
+  RMSE: 7.75 days
+  R²:   0.1859
+
+IMPROVEMENT (Climate-Enhanced vs Baseline):
+  MAE:  +19.07 days (+74.9%)
+  RMSE: +19.18 days (+71.2%)
+  R²:   +9.0220 (+102.1%)
+
+✓ Climate data IMPROVES predictions by 19.07 days MAE
+
+✓ Saved comparison to: comparison_results/toronto_comparison.csv
+✓ Saved metrics to: comparison_results/toronto_metrics.json
+
+======================================================================
+✓ COMPARISON COMPLETE
+======================================================================

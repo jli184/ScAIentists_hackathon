@@ -1,0 +1,5 @@
+location,lat,long,alt,year,bloom_date,bloom_doy,spring_temp,spring_gdd,winter_chill_days,spring_precip
+Switzerland/Ried / Frutigen,46.570078,7.619381,1090,2017,2017-04-20,110,1.04,40.1,89.0,352.2
+Switzerland/Ried / Frutigen,46.570078,7.619381,1090,2021,2021-05-11,131,0.74,29.1,87.0,392.8
+Switzerland/Ried / Frutigen,46.570078,7.619381,1090,2022,2022-04-30,120,1.25,22.9,88.0,269.7
+Switzerland/Ried / Frutigen,46.570078,7.619381,1090,2023,2023-05-05,125,1.08,30.9,86.0,340.9

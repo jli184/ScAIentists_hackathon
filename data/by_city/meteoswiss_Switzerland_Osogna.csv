@@ -1,0 +1,8 @@
+location,lat,long,alt,year,bloom_date,bloom_doy,spring_temp,spring_gdd,winter_chill_days,spring_precip
+Switzerland/Osogna,46.311967,8.987064,276,2017,2017-03-28,87,7.24,267.1,63.0,318.3
+Switzerland/Osogna,46.311967,8.987064,276,2018,2018-04-14,104,,,72.0,
+Switzerland/Osogna,46.311967,8.987064,276,2019,2019-04-01,91,7.5,280.7,,166.9
+Switzerland/Osogna,46.311967,8.987064,276,2020,2020-04-04,95,,,52.0,
+Switzerland/Osogna,46.311967,8.987064,276,2021,2021-03-29,88,5.68,200.7,61.0,245.5
+Switzerland/Osogna,46.311967,8.987064,276,2022,2022-04-04,94,,,45.0,
+Switzerland/Osogna,46.311967,8.987064,276,2023,2023-03-28,87,8.03,320.2,47.0,133.2

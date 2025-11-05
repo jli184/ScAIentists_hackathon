@@ -1,0 +1,339 @@
+======================================================================
+Parallel City CSV Enrichment
+======================================================================
+Workers: 4
+Batch size: 20
+
+Scanning 326 city CSV files...
+
+Summary:
+  ✓ Already complete: 62 files
+  ⚠ Need enrichment: 264 files
+
+Top 10 files by missing rows:
+  japan_Japan_Shionomisaki.csv: 100/100 rows missing
+  meteoswiss_Switzerland_Wattwil_SG.csv: 72/72 rows missing
+  meteoswiss_Switzerland_Wiliberg.csv: 70/70 rows missing
+  japan_Japan_Kumagaya.csv: 69/69 rows missing
+  japan_Japan_Miyazaki.csv: 69/69 rows missing
+  japan_Japan_Hikone.csv: 69/69 rows missing
+  japan_Japan_Takamatsu.csv: 69/69 rows missing
+  japan_Japan_Tsu.csv: 69/69 rows missing
+  japan_Japan_Kyoto.csv: 69/69 rows missing
+  japan_Japan_Tokushima.csv: 69/69 rows missing
+
+======================================================================
+Starting parallel enrichment of 264 files...
+======================================================================
+
+Batch 1/14: Processing 20 files...
+  ✓ meteoswiss_Switzerland_Wiliberg.csv: ✓ Enriched 70 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Kumagaya.csv: ✓ Enriched 69 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Wattwil_SG.csv: ✓ Enriched 72 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Shionomisaki.csv: ✓ Enriched 100 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Hikone.csv: ✓ Enriched 69 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Miyazaki.csv: ✓ Enriched 69 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Takamatsu.csv: ✓ Enriched 69 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Tsu.csv: ✓ Enriched 69 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Kyoto.csv: ✓ Enriched 69 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Tokushima.csv: ✓ Enriched 69 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Kofu.csv: ✓ Enriched 69 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Kumamoto.csv: ✓ Enriched 69 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Sarnen.csv: ✓ Enriched 69 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Yokohama.csv: ✓ Enriched 69 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Shimonoseki.csv: ✓ Enriched 69 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Gifu.csv: ✓ Enriched 69 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Oita.csv: ✓ Enriched 69 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Choshi.csv: ✓ Enriched 69 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Mito.csv: ✓ Enriched 69 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Matsuyama.csv: ✓ Enriched 69 rows (skipped 0 complete rows)
+  Batch completed in 203.6s
+
+Batch 2/14: Processing 20 files...
+  ✓ japan_Japan_Kobe.csv: ✓ Enriched 69 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Okayama.csv: ✓ Enriched 69 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Hiroshima.csv: ✓ Enriched 69 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Nagasaki.csv: ✓ Enriched 69 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Tokyo.csv: ✓ Enriched 69 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Shizuoka.csv: ✓ Enriched 69 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Fukuoka.csv: ✓ Enriched 68 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Kagoshima.csv: ✓ Enriched 69 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Nara.csv: ✓ Enriched 68 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Saga.csv: ✓ Enriched 68 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Sargans_II.csv: ✓ Enriched 68 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Couvet.csv: ✓ Enriched 67 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Zürich-MeteoSchweiz.csv: ✓ Enriched 67 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Wakayama.csv: ✓ Enriched 67 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Escholzmatt.csv: ✓ Enriched 67 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Elm.csv: ✓ Enriched 66 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Entlebuch.csv: ✓ Enriched 65 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Merishausen.csv: ✓ Enriched 65 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_LAbergement.csv: ✓ Enriched 64 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Thusis.csv: ✓ Enriched 63 rows (skipped 0 complete rows)
+  Batch completed in 170.5s
+
+Batch 3/14: Processing 20 files...
+  ✓ meteoswiss_Switzerland_Vals.csv: ✓ Enriched 61 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Prato-Sornico.csv: ✓ Enriched 63 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Cartigny.csv: ✓ Enriched 63 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Matsue.csv: ✓ Enriched 63 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Disentis.csv: ✓ Enriched 60 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Osaka.csv: ✓ Enriched 61 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Maizuru.csv: ✓ Enriched 60 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Brusio-Piazzo.csv: ✓ Enriched 58 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Moutier.csv: ✓ Enriched 58 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Wädenswil.csv: ✓ Enriched 58 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Andeer.csv: ✓ Enriched 58 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Zürich-Albisgütli.csv: ✓ Enriched 58 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Longirod.csv: ✓ Enriched 57 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Locarno.csv: ✓ Enriched 57 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Fukue.csv: ✓ Enriched 57 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Hachijojima.csv: ✓ Enriched 56 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Changins.csv: ✓ Enriched 56 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Adelboden.csv: ✓ Enriched 56 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Saigo.csv: ✓ Enriched 56 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Horgen.csv: ✓ Enriched 55 rows (skipped 0 complete rows)
+  Batch completed in 152.9s
+
+Batch 4/14: Processing 20 files...
+  ✓ meteoswiss_Switzerland_Leysin.csv: ✓ Enriched 55 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Zweisimmen.csv: ✓ Enriched 55 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Yonago.csv: ✓ Enriched 55 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Ishigakijima.csv: ✓ Enriched 55 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Zürich-Witikon.csv: ✓ Enriched 55 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Chur.csv: ✓ Enriched 55 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Aurigeno.csv: ✓ Enriched 55 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Cevio-Cavergno.csv: ✓ Enriched 55 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Owase.csv: ✓ Enriched 55 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Toyooka.csv: ✓ Enriched 55 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Domat___Ems.csv: ✓ Enriched 54 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Hamada.csv: ✓ Enriched 55 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Bondo_GR.csv: ✓ Enriched 54 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Villnachern.csv: ✓ Enriched 54 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Laufenburg.csv: ✓ Enriched 54 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Appenzell.csv: ✓ Enriched 54 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Iida.csv: ✓ Enriched 54 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Stampa.csv: ✓ Enriched 53 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Diessenhofen.csv: ✓ Enriched 53 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Naze.csv: ✓ Enriched 53 rows (skipped 0 complete rows)
+  Batch completed in 143.9s
+
+Batch 5/14: Processing 20 files...
+  ✓ meteoswiss_Switzerland_Moudon.csv: ✓ Enriched 53 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Naze_Funchatoge.csv: ✓ Enriched 53 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Schönenwerd.csv: ✓ Enriched 53 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Tsuruga.csv: ✓ Enriched 53 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Wynau.csv: ✓ Enriched 53 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Orbe___Bochuz.csv: ✓ Enriched 52 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Hamamatsu.csv: ✓ Enriched 52 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Bauma.csv: ✓ Enriched 52 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Linthal.csv: ✓ Enriched 52 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Zizers.csv: ✓ Enriched 52 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Jenaz.csv: ✓ Enriched 52 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Gryon.csv: ✓ Enriched 50 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Sumoto.csv: ✓ Enriched 49 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Basel-Binningen.csv: ✓ Enriched 50 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Gadmen.csv: ✓ Enriched 49 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Simplon-Dorf.csv: ✓ Enriched 49 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Neuhausen.csv: ✓ Enriched 49 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Oberehrendingen.csv: ✓ Enriched 49 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Luzern.csv: ✓ Enriched 49 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Eschen-Boja.csv: ✓ Enriched 47 rows (skipped 0 complete rows)
+  Batch completed in 129.9s
+
+Batch 6/14: Processing 20 files...
+  ✓ meteoswiss_Switzerland_St_Luc.csv: ✓ Enriched 46 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Heiden.csv: ✓ Enriched 47 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Oshima.csv: ✓ Enriched 47 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Miyakojima.csv: ✓ Enriched 46 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Muri_AG.csv: ✓ Enriched 46 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Martina.csv: ✓ Enriched 46 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Rorschach.csv: ✓ Enriched 46 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Edlibach.csv: ✓ Enriched 45 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Stein_AR_II.csv: ✓ Enriched 45 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Osterfingen.csv: ✓ Enriched 45 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Hallau.csv: ✓ Enriched 45 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Naha.csv: ✓ Enriched 45 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Grossdietwil.csv: ✓ Enriched 44 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Vira___Gambarogno.csv: ✓ Enriched 44 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Azmoos.csv: ✓ Enriched 44 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Minamidaitojima.csv: ✓ Enriched 43 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Näfels.csv: ✓ Enriched 43 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Wald_ZH.csv: ✓ Enriched 43 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Oeschberg.csv: ✓ Enriched 43 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Möhlin.csv: ✓ Enriched 43 rows (skipped 0 complete rows)
+  Batch completed in 127.0s
+
+Batch 7/14: Processing 20 files...
+  ✓ meteoswiss_Switzerland_Sihlbrugg.csv: ✓ Enriched 41 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Altdorf.csv: ✓ Enriched 42 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Grüsch.csv: ✓ Enriched 42 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Les_Plans-sur-Bex.csv: ✓ Enriched 43 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Herzogenbuchsee.csv: ✓ Enriched 41 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Döttingen.csv: ✓ Enriched 41 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Les_Rangiers.csv: ✓ Enriched 40 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Sent.csv: ✓ Enriched 40 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_La_Valsainte.csv: ✓ Enriched 39 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Leytron.csv: ✓ Enriched 40 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Birmensdorf.csv: ✓ Enriched 40 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Uwajima.csv: ✓ Enriched 39 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Worb_BE.csv: ✓ Enriched 38 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Tateyama.csv: ✓ Enriched 38 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Le_Locle.csv: ✓ Enriched 38 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Tanegashima.csv: ✓ Enriched 39 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Oberlangenegg.csv: ✓ Enriched 37 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Sagno_TI.csv: ✓ Enriched 36 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Vergeletto.csv: ✓ Enriched 36 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Scuol.csv: ✓ Enriched 35 rows (skipped 0 complete rows)
+  Batch completed in 100.9s
+
+Batch 8/14: Processing 20 files...
+  ✓ meteoswiss_Switzerland_Cernier.csv: ✓ Enriched 34 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Winterthur.csv: ✓ Enriched 34 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Nobeoka.csv: ✓ Enriched 33 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Miyakejima.csv: ✓ Enriched 34 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Wolhusen.csv: ✓ Enriched 32 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Locarno-Monti.csv: ✓ Enriched 33 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Silenen.csv: ✓ Enriched 32 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Chardonne.csv: ✓ Enriched 32 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Frauenfeld.csv: ✓ Enriched 31 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Fanas.csv: ✓ Enriched 31 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Kumejima.csv: ✓ Enriched 31 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Comprovasco___Motto.csv: ✓ Enriched 31 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Wetzikon.csv: ✓ Enriched 30 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Wil_SG.csv: ✓ Enriched 30 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Blonay.csv: ✓ Enriched 30 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Chaumont.csv: ✓ Enriched 30 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Romanshorn.csv: ✓ Enriched 30 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Estavayer-le-Lac.csv: ✓ Enriched 30 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Morgins_VS.csv: ✓ Enriched 29 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Höfen.csv: ✓ Enriched 27 rows (skipped 0 complete rows)
+  Batch completed in 87.1s
+
+Batch 9/14: Processing 20 files...
+  ✓ meteoswiss_Switzerland_Raperswilen_TG.csv: ✓ Enriched 25 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Bellelay.csv: ✓ Enriched 26 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Sta_Maria_Val_Mustair.csv: ✓ Enriched 25 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Seoul.csv: ✓ Enriched 25 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Hard_b_Weinfelden.csv: ✓ Enriched 24 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Buchs.csv: ✓ Enriched 24 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Wengen.csv: ✓ Enriched 24 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Yeosu.csv: ✓ Enriched 24 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Dornach.csv: ✓ Enriched 23 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Gundetswil.csv: ✓ Enriched 23 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Nago.csv: ✓ Enriched 23 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Iriomotejima.csv: ✓ Enriched 24 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Daegu.csv: ✓ Enriched 22 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Daejeon.csv: ✓ Enriched 22 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Suwon.csv: ✓ Enriched 22 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Les_Diablerets.csv: ✓ Enriched 22 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Ulleungdo.csv: ✓ Enriched 21 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Gwangju.csv: ✓ Enriched 21 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Wildhaus.csv: ✓ Enriched 21 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Mokpo.csv: ✓ Enriched 21 rows (skipped 0 complete rows)
+  Batch completed in 62.0s
+
+Batch 10/14: Processing 20 files...
+  ✓ south_korea_South_Korea_Incheon.csv: ✓ Enriched 20 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Busan.csv: ✓ Enriched 20 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Meiringen_I.csv: ✓ Enriched 21 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Cheongju.csv: ✓ Enriched 21 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Chuncheon.csv: ✓ Enriched 20 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Ulsan.csv: ✓ Enriched 20 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Jeju.csv: ✓ Enriched 20 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Jeonju.csv: ✓ Enriched 20 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Boudry.csv: ✓ Enriched 20 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Seongsan.csv: ✓ Enriched 20 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Einsiedeln.csv: ✓ Enriched 20 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Visp.csv: ✓ Enriched 19 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Gstaad.csv: ✓ Enriched 19 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Pohang.csv: ✓ Enriched 19 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Seogwipo.csv: ✓ Enriched 19 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Buyeo.csv: ✓ Enriched 19 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Wando.csv: ✓ Enriched 18 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Lanterswil.csv: ✓ Enriched 18 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Icheon.csv: ✓ Enriched 18 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Jeongeup.csv: ✓ Enriched 18 rows (skipped 0 complete rows)
+  Batch completed in 54.3s
+
+Batch 11/14: Processing 20 files...
+  ✓ meteoswiss_Switzerland_Unterseen.csv: ✓ Enriched 17 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Hochdorf.csv: ✓ Enriched 17 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Sokcho.csv: ✓ Enriched 18 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Seosan.csv: ✓ Enriched 18 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Yeongcheon.csv: ✓ Enriched 16 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Uljin.csv: ✓ Enriched 16 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Chupungnyeong.csv: ✓ Enriched 16 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Yeongdeok.csv: ✓ Enriched 16 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Wonju.csv: ✓ Enriched 16 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Cheonan.csv: ✓ Enriched 16 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Chungju.csv: ✓ Enriched 16 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Yonagunijima.csv: ✓ Enriched 16 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Uiseong.csv: ✓ Enriched 15 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Imsil.csv: ✓ Enriched 15 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Geumsan.csv: ✓ Enriched 15 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Gunsan.csv: ✓ Enriched 15 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Gumi.csv: ✓ Enriched 15 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Tongyeong.csv: ✓ Enriched 15 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Ganghwa.csv: ✓ Enriched 15 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Jinju.csv: ✓ Enriched 15 rows (skipped 0 complete rows)
+  Batch completed in 48.2s
+
+Batch 12/14: Processing 20 files...
+  ✓ south_korea_South_Korea_Boryeong.csv: ✓ Enriched 15 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Jangheung.csv: ✓ Enriched 15 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Goheung.csv: ✓ Enriched 15 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Sancheong.csv: ✓ Enriched 15 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Namhae.csv: ✓ Enriched 15 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Geochang.csv: ✓ Enriched 15 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Gangneung.csv: ✓ Enriched 15 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Boeun.csv: ✓ Enriched 15 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Haenam.csv: ✓ Enriched 15 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Hapcheon.csv: ✓ Enriched 14 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Miryang.csv: ✓ Enriched 15 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Yeongju.csv: ✓ Enriched 15 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Geoje.csv: ✓ Enriched 14 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Yangpyeong.csv: ✓ Enriched 14 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Hongcheon.csv: ✓ Enriched 14 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Therwil.csv: ✓ Enriched 14 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Jecheon.csv: ✓ Enriched 14 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Rancate.csv: ✓ Enriched 14 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Grellingen.csv: ✓ Enriched 14 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Jegenstorf_II.csv: ✓ Enriched 14 rows (skipped 0 complete rows)
+  Batch completed in 43.8s
+
+Batch 13/14: Processing 20 files...
+  ✓ meteoswiss_Switzerland_Alchenflüh_.csv: ✓ Enriched 11 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Le_SÈpey.csv: ✓ Enriched 12 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Seewil.csv: ✓ Enriched 13 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Buan.csv: ✓ Enriched 13 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Mungyeong.csv: ✓ Enriched 10 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Olivone.csv: ✓ Enriched 10 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Inje.csv: ✓ Enriched 11 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_La_BrÈvine.csv: ✓ Enriched 10 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Osogna.csv: ✓ Enriched 7 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Neuchtel.csv: ✓ Enriched 9 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Langnau_iE.csv: ✓ Enriched 8 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Ballens.csv: ✓ Enriched 7 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Ried___Frutigen.csv: ✓ Enriched 4 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Payerne.csv: ✓ Enriched 5 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Reinach_BL.csv: ✓ Enriched 6 rows (skipped 0 complete rows)
+  ✓ south_korea_South_Korea_Daegwallyeong.csv: ✓ Enriched 7 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Echandens.csv: ✓ Enriched 3 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Mellingen.csv: ✓ Enriched 2 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Mugena.csv: ✓ Enriched 4 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Davos-Dorf.csv: ✓ Enriched 3 rows (skipped 0 complete rows)
+  Batch completed in 27.7s
+
+Batch 14/14: Processing 4 files...
+  ✓ meteoswiss_Switzerland_Kandersteg.csv: ✓ Enriched 1 rows (skipped 0 complete rows)
+  ✓ japan_Japan_Kushiro.csv: ✓ Enriched 1 rows (skipped 133 complete rows)
+  ✓ meteoswiss_Switzerland_St_Gallen___Winkeln.csv: ✓ Enriched 2 rows (skipped 0 complete rows)
+  ✓ meteoswiss_Switzerland_Faido.csv: ✓ Enriched 2 rows (skipped 0 complete rows)
+  Batch completed in 2.7s
+
+======================================================================
+Enrichment Complete!
+======================================================================
+Successfully enriched: 264/264 files
+======================================================================

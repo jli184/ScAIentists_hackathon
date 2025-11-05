@@ -1,0 +1,44 @@
+{
+  "timestamp": "2025-11-05T19:56:22.004313",
+  "target_location": "toronto",
+  "has_climate_features": true,
+  "features_baseline": [
+    "lat",
+    "long",
+    "alt",
+    "year"
+  ],
+  "features_climate": [
+    "lat",
+    "long",
+    "alt",
+    "year",
+    "spring_temp",
+    "spring_gdd",
+    "winter_chill_days",
+    "spring_precip"
+  ],
+  "metrics_baseline": {
+    "mae": 25.449079513549805,
+    "rmse": 26.923242039436158,
+    "r2": -8.836109161376953,
+    "bias_mean": 25.449078696114675,
+    "bias_median": 28.635601043701172,
+    "n_train": 10000,
+    "n_test": 14
+  },
+  "metrics_climate": {
+    "mae": 6.3786187171936035,
+    "rmse": 7.745760588760065,
+    "r2": 0.1858643889427185,
+    "bias_mean": 5.227940150669643,
+    "bias_median": 5.40887451171875,
+    "n_train": 3617,
+    "n_test": 14
+  },
+  "improvement": {
+    "mae": 19.0704607963562,
+    "rmse": 19.17748145067609,
+    "r2": 9.021973550319672
+  }
+}

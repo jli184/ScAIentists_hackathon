@@ -1,0 +1,5 @@
+location,lat,long,alt,year,bloom_date,bloom_doy,spring_temp,spring_gdd,winter_chill_days,spring_precip
+Switzerland/Mugena,46.046497,8.888964,784,2020,2020-04-05,96,3.55,47.8,88.0,157.7
+Switzerland/Mugena,46.046497,8.888964,784,2021,2021-04-01,91,1.92,55.7,85.0,226.1
+Switzerland/Mugena,46.046497,8.888964,784,2022,2022-04-09,99,3.5,54.4,87.0,55.8
+Switzerland/Mugena,46.046497,8.888964,784,2023,2023-04-04,94,,,87.0,

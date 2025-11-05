@@ -1,0 +1,18 @@
+========================================
+🔍 Starting Detailed Enrichment Monitor
+========================================
+PID: 5940
+Check interval: 60s
+
+[2025-11-05 18:35:22 UTC]        Progress: 5/53    Progress: 10/53    Progress: 15/53    Progress: 20/53    Progress: 25/53    Progress: 30/53    Progress: 35/53    Progress: 40/53
+[2025-11-05 18:36:22 UTC]        Progress: 5/55    Progress: 10/55    Progress: 15/55    Progress: 20/55    Progress: 25/55    Progress: 30/55    Progress: 35/55    Progress: 40/55    Progress: 45/55    Progress: 50/55
+[2025-11-05 18:37:22 UTC]        Progress: 5/44    Progress: 10/44    Progress: 15/44    Progress: 20/44
+[2025-11-05 18:38:22 UTC]        Progress: 5/46    Progress: 10/46    Progress: 15/46    Progress: 20/46    Progress: 25/46    Progress: 30/46    Progress: 35/46
+[2025-11-05 18:39:22 UTC] 📊 File sizes:
+              data/japan.csv           523K
+              data/kyoto.csv            48K
+              data/liestal.csv         8.4K
+              data/meteoswiss.csv      460K
+              data/south_korea.csv      64K
+              data/washingtondc.csv     6.1K
+[2025-11-05 18:40:22 UTC]        Progress: 5/70    Progress: 10/70    Progress: 15/70    Progress: 20/70    Progress: 25/70    Progress: 30/70

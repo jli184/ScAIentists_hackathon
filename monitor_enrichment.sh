@@ -1,41 +1,66 @@
 #!/bin/bash
-# Monitor enrichment progress
+# Detailed enrichment monitoring with file completion tracking
 
-echo "=========================================="
-echo "Enrichment Progress Monitor"
-echo "Started at: $(date '+%Y-%m-%d %H:%M:%S')"
-echo "=========================================="
+PID=5940
+CHECK_INTERVAL=60  # Check every 60 seconds
+
+# Initialize tracking
+LAST_FILE=""
+FILES_COMPLETED=0
+CHECK_COUNT=0
+
+echo "========================================"
+echo "🔍 Starting Detailed Enrichment Monitor"
+echo "========================================"
+echo "PID: $PID"
+echo "Check interval: ${CHECK_INTERVAL}s"
 echo ""
 
 while true; do
-    echo "=== Update at $(date '+%H:%M:%S') ==="
+    TIMESTAMP=$(date '+%Y-%m-%d %H:%M:%S UTC')
 
-    # Count completed locations in japan.csv (should have climate columns)
-    if [ -f "data/japan.csv" ]; then
-        # Check if file has climate columns
-        if head -1 data/japan.csv | grep -q "spring_temp"; then
-            completed=$(awk -F',' 'NR>1 && $8!="" {print $1}' data/japan.csv | sort -u | wc -l)
-            echo "Japan: $completed locations enriched with climate data"
-        else
-            echo "Japan: Enrichment in progress (no climate columns yet)"
-        fi
+    # Check if process is running
+    if ! ps -p $PID > /dev/null 2>&1; then
+        echo "[$TIMESTAMP] ⏹️  Process $PID has stopped"
+        echo ""
+        echo "Final Status:"
+        ls -lh data/*.csv | awk '{printf "  %-25s %8s\n", $9, $5}'
+        echo ""
+        echo "Enrichment process completed or terminated."
+        break
     fi
 
-    # Check other files
-    for file in data/{kyoto,liestal,meteoswiss,nyc,south_korea,vancouver,washingtondc}.csv; do
-        if [ -f "$file" ]; then
-            filename=$(basename $file)
-            if head -1 "$file" | grep -q "spring_temp"; then
-                echo "$filename: ✓ Enriched"
-            else
-                echo "$filename: Pending"
-            fi
-        fi
-    done
+    # Get current file being processed
+    CURRENT_FILE=$(tail -20 enrichment_output.log | grep "Processing:" | tail -1 | awk '{print $2}')
 
-    echo ""
-    echo "Checking again in 5 minutes..."
-    echo ""
+    # Check for file completion
+    COMPLETED=$(tail -5 enrichment_output.log | grep "All locations in" | tail -1)
 
-    sleep 300  # 5 minutes
+    if [ ! -z "$COMPLETED" ] && [ "$CURRENT_FILE" != "$LAST_FILE" ]; then
+        COMPLETED_FILE=$(echo "$COMPLETED" | awk '{print $5}')
+        FILES_COMPLETED=$((FILES_COMPLETED + 1))
+        echo "[$TIMESTAMP] ✅ COMPLETED: $COMPLETED_FILE"
+        echo "              Files done: $FILES_COMPLETED"
+    fi
+
+    # Show current status
+    if [ ! -z "$CURRENT_FILE" ] && [ "$CURRENT_FILE" != "$LAST_FILE" ]; then
+        echo "[$TIMESTAMP] 🔄 NOW PROCESSING: $CURRENT_FILE"
+        LAST_FILE="$CURRENT_FILE"
+    fi
+
+    # Show recent progress
+    RECENT_PROGRESS=$(tail -3 enrichment_output.log | grep "Progress:" | tail -1)
+    if [ ! -z "$RECENT_PROGRESS" ]; then
+        echo "[$TIMESTAMP]    $RECENT_PROGRESS"
+    fi
+
+    # Show file size changes every 5 checks
+    CHECK_COUNT=$((CHECK_COUNT + 1))
+    if [ $((CHECK_COUNT % 5)) -eq 0 ]; then
+        echo "[$TIMESTAMP] 📊 File sizes:"
+        ls -lh data/*.csv | grep -E "(kyoto|liestal|meteoswiss|south_korea|washingtondc|japan)" | awk '{printf "              %-20s %8s\n", $9, $5}'
+    fi
+
+    sleep $CHECK_INTERVAL
 done

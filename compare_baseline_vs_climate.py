@@ -101,10 +101,17 @@ def run_tabpfn_prediction(X_train, y_train, X_test, y_test, description, max_tra
     model.fit(X_train_sampled, y_train_sampled)
     print("✓ Training complete")
 
-    # Predict
-    print("Making predictions...")
-    y_pred = model.predict(X_test)
-    print("✓ Predictions complete")
+    # Predict with uncertainties
+    print("Making predictions with uncertainty quantiles...")
+    y_pred = model.predict(X_test)  # Mean prediction
+
+    # Get quantile predictions for uncertainty
+    quantile_preds = model.predict(X_test, output_type="quantiles", quantiles=[0.1, 0.5, 0.9])
+    y_pred_q10 = quantile_preds[0]  # 10th percentile (lower bound)
+    y_pred_q50 = quantile_preds[1]  # 50th percentile (median)
+    y_pred_q90 = quantile_preds[2]  # 90th percentile (upper bound)
+
+    print("✓ Predictions complete (with uncertainty)")
 
     # Calculate metrics
     errors = y_test - y_pred
@@ -131,7 +138,15 @@ def run_tabpfn_prediction(X_train, y_train, X_test, y_test, description, max_tra
         'n_test': len(X_test)
     }
 
-    return y_pred, metrics
+    # Return predictions with uncertainties
+    predictions = {
+        'mean': y_pred,
+        'q10': y_pred_q10,
+        'q50': y_pred_q50,
+        'q90': y_pred_q90
+    }
+
+    return predictions, metrics
 
 def compare_baseline_vs_climate(target_location='toronto', max_train_samples=10000):
     """
@@ -181,7 +196,7 @@ def compare_baseline_vs_climate(target_location='toronto', max_train_samples=100
 
     print(f"Features: {', '.join(features_base)}")
 
-    y_pred_baseline, metrics_baseline = run_tabpfn_prediction(
+    preds_baseline, metrics_baseline = run_tabpfn_prediction(
         X_train_base, y_train_base,
         X_test_base, y_test_base,
         "BASELINE MODEL (No Climate Data)"
@@ -210,10 +225,11 @@ def compare_baseline_vs_climate(target_location='toronto', max_train_samples=100
         print("\n⚠️  WARNING: Climate features not available yet!")
         print("   Climate-enhanced prediction will be identical to baseline.")
         print("   Run enrichment scripts to add climate data first.")
-        y_pred_climate = y_pred_baseline.copy()
+        # Copy baseline predictions structure
+        preds_climate = {k: v.copy() for k, v in preds_baseline.items()}
         metrics_climate = metrics_baseline.copy()
     else:
-        y_pred_climate, metrics_climate = run_tabpfn_prediction(
+        preds_climate, metrics_climate = run_tabpfn_prediction(
             X_train_climate, y_train_climate,
             X_test_climate, y_test_climate,
             "CLIMATE-ENHANCED MODEL (With Climate Data)"
@@ -261,12 +277,16 @@ def compare_baseline_vs_climate(target_location='toronto', max_train_samples=100
     else:
         print(f"\n⚠️  Climate comparison not yet possible - data needs enrichment")
 
-    # Create results dataframe
+    # Create results dataframe with predictions and uncertainties
     results_df = target_clean_base.copy()
-    results_df['predicted_baseline'] = y_pred_baseline
-    results_df['predicted_climate'] = y_pred_climate
-    results_df['error_baseline'] = y_test_base - y_pred_baseline
-    results_df['error_climate'] = y_test_climate - y_pred_climate
+    results_df['predicted_baseline'] = preds_baseline['mean']
+    results_df['predicted_baseline_q10'] = preds_baseline['q10']
+    results_df['predicted_baseline_q90'] = preds_baseline['q90']
+    results_df['predicted_climate'] = preds_climate['mean']
+    results_df['predicted_climate_q10'] = preds_climate['q10']
+    results_df['predicted_climate_q90'] = preds_climate['q90']
+    results_df['error_baseline'] = y_test_base - preds_baseline['mean']
+    results_df['error_climate'] = y_test_climate - preds_climate['mean']
     results_df['abs_error_baseline'] = np.abs(results_df['error_baseline'])
     results_df['abs_error_climate'] = np.abs(results_df['error_climate'])
     results_df['improvement'] = results_df['abs_error_baseline'] - results_df['abs_error_climate']

@@ -83,23 +83,44 @@ def enrich_csv_file(csv_path):
 
     df = pd.read_csv(csv_path)
 
-    # Check if already enriched
-    if 'spring_temp' in df.columns:
-        print(f"Already enriched, skipping...")
-        return
-
     print(f"Total records: {len(df)}")
     records_1940plus = len(df[df['year'] >= 1940])
     print(f"Records >= 1940 (can be enriched): {records_1940plus}")
 
-    # Add new columns
-    df['spring_temp'] = np.nan
-    df['spring_gdd'] = np.nan
-    df['winter_chill_days'] = np.nan
-    df['spring_precip'] = np.nan
+    # Add new columns if they don't exist
+    if 'spring_temp' not in df.columns:
+        df['spring_temp'] = np.nan
+        df['spring_gdd'] = np.nan
+        df['winter_chill_days'] = np.nan
+        df['spring_precip'] = np.nan
 
-    # Process by location
+    # Check which locations are already enriched
+    locations_to_process = []
+    locations_completed = []
+
     for location_name in df['location'].unique():
+        location_df = df[df['location'] == location_name]
+        enrichable = location_df[location_df['year'] >= 1940]
+
+        # Check if this location has any enriched records
+        has_climate = location_df['spring_temp'].notna().sum()
+
+        if has_climate > 0:
+            locations_completed.append(location_name)
+        else:
+            locations_to_process.append(location_name)
+
+    if locations_completed:
+        print(f"\n✓ Already enriched: {len(locations_completed)} locations")
+
+    if not locations_to_process:
+        print(f"All locations already enriched, skipping file!")
+        return
+
+    print(f"📋 To process: {len(locations_to_process)} locations remaining")
+
+    # Process remaining locations
+    for location_name in locations_to_process:
         location_df = df[df['location'] == location_name]
         lat = location_df['lat'].iloc[0]
         lon = location_df['long'].iloc[0]
@@ -138,19 +159,44 @@ def main():
     print("Enriching Cherry Blossom CSVs with Climate Data")
     print("="*60)
 
-    csv_files = sorted(glob.glob("data/*.csv"))
-    print(f"\nFound {len(csv_files)} CSV files")
+    all_csv_files = sorted(glob.glob("data/*.csv"))
+
+    # Prioritize non-Japan files first, then Japan
+    priority_order = []
+    japan_files = []
+
+    for csv_file in all_csv_files:
+        if 'japan.csv' in csv_file:
+            japan_files.append(csv_file)
+        elif 'toronto.csv' not in csv_file:  # Skip Toronto (already done)
+            priority_order.append(csv_file)
+
+    # Put Japan at the end
+    csv_files = priority_order + japan_files
+
+    print(f"\nFound {len(csv_files)} CSV files to process")
+    print(f"Priority order: Other datasets first, then Japan")
 
     # Show summary
     total_records = 0
     for csv_file in csv_files:
         df = pd.read_csv(csv_file)
         total_records += len(df)
-        print(f"  {csv_file.split('/')[-1]}: {len(df)} records")
+
+        # Check enrichment status
+        if 'spring_temp' in df.columns:
+            enriched = df['spring_temp'].notna().sum()
+            pct = enriched/len(df)*100 if len(df) > 0 else 0
+            status = f"({enriched}/{len(df)} = {pct:.0f}% enriched)"
+        else:
+            status = "(not started)"
+
+        print(f"  {csv_file.split('/')[-1]:20} {len(df):5} records {status}")
 
     print(f"\nTotal records across all files: {total_records}")
 
-    print("\nStarting enrichment (this will take ~30-60 min)...")
+    print("\n🎯 Strategy: Enrich other datasets first for diversity, then complete Japan")
+    print("Starting enrichment (saves after each location)...")
 
     start_time = time.time()
 
